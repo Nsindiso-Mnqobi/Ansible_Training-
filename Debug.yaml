@@ -1,0 +1,9 @@
+---
+
+- hosts: centos
+  vars:
+    - var_thing: "never gonna"
+
+  tasks:
+    - name: show results
+      debug: msg="The variable var_thing is set to{{var_thing}}" 
