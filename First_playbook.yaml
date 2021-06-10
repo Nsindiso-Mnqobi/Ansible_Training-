@@ -1,0 +1,10 @@
+--- 
+
+- hosts: hosts
+  become: yes
+  tasks:
+    - name: do a uname
+      shell: uname -a > /home/nsindiso/Desktop/results.txt
+
+    - name: whoami
+      shell: whoami >> /home/nsindiso/Desktop/results.txt
