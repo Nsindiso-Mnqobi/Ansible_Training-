@@ -1,0 +1,13 @@
+---
+
+- hosts: ubuntu
+  vars:
+    - var_thing: imagine that
+
+  tasks:
+    - name: Get variable
+      shell: echo "love"
+      register: results
+
+    - name: show results
+      debug: msg={{ results.stdout }}
