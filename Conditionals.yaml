@@ -1,0 +1,14 @@
+---
+
+- hosts: hosts
+  become: true
+
+  tasks:
+    - name: Install Apache
+      apt: name=apache2 state=latest 
+      ignore_errors: yes
+      register: results
+
+    - name: Install httpd
+      yum: name=httpd state=latest
+      when: results|FAILED
