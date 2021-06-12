@@ -1,0 +1,9 @@
+--- 
+
+- include: update_systems.yaml
+
+- hosts: hosts
+  become: yes
+  
+  tasks: 
+    - include: install_apache.yaml
