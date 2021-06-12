@@ -5,9 +5,18 @@
 
   tasks:
     - name: Install apache2
-      apt: name=apache2 state=absent
+      apt: name=apache2 state=latest
       when: ansible_os_family == "Debian"
+      notify: start apache
 
     - name: Install httpd
       yum: name=httpd state=latest
       when: ansible_os_family == "RedHat"
+      notify: start httpd
+
+  handlers:
+    - name: start apache
+      service: name=apache2 enabled=yes state=started
+
+    - name: start httpd
+      service: name=httpd enabled=yes states=started 
