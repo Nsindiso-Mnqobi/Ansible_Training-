@@ -1,0 +1,16 @@
+---
+
+- name: Send Command
+  hosts: eve
+  connection: local
+
+  tasks:
+
+    - name: send command
+      ios_command:
+        commands:
+          - show ip int brief
+      register: facts
+      
+    - name: Print facts to console
+      debug: msg="{{facts.stdout_lines}}"  

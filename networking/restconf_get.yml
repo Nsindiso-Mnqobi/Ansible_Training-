@@ -1,0 +1,15 @@
+---
+- name: Obtain interface statistics
+  hosts: ios_xe
+  connection: local
+
+  tasks:
+    - name: Get Some Configs
+      restconf_get:
+        content: config
+        output: json
+        path: /data//Cisco-IOS-XE-native:native/interface
+      register: dataout
+
+    - name: Print Output
+      debug: msg="{{dataout}}"  

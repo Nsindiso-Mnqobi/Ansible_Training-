@@ -1,0 +1,12 @@
+---
+
+- name: Retrieve IOS-XR version 
+  hosts: ios_xr
+  connection: local
+
+  tasks:
+
+    - name: Retrieve IOS-XR version
+      iosxr_command:
+        commands: show version
+      when: ansible_network_os == 'iosxr'

@@ -1,0 +1,16 @@
+- name: nxos query
+  hosts: switch
+  connection: local
+
+  tasks:
+  - name: Gather Facts
+    nxos_facts:
+      gather_subset: all
+    register: nxos_data
+
+  - name: Print Name To Console
+    debug: msg="{{nxos_data}}" 
+
+
+  
+    
